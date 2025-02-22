@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Suite">
+    <test name="TestNG Test">
+        <classes>
+            <class name="TestCases.Test_Signup"/>
+            <class name="TestCases.Test_Login"/>
+        </classes>
+    </test>
+</suite>
