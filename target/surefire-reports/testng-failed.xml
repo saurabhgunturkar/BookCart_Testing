@@ -5,8 +5,8 @@
     <classes>
       <class name="TestCases.Test_Signup">
         <methods>
-          <include name="verifySignupPageContent"/>
           <include name="suite"/>
+          <include name="verifySignupPageContent"/>
           <include name="reporr"/>
           <include name="setup"/>
           <include name="tearDown"/>
