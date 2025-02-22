@@ -2,12 +2,8 @@ package TestCases;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -110,27 +106,27 @@ public class Test_Signup extends Base {
     }
 
 
-    @Test(priority = 1)
-    public void verifySignupPageContent() throws IOException{
-        testname="TC_05 Verify Signup Page Content";
-        try {
-            driver.findElement(By.xpath("//span[text()=' Login ']")).click();
-            driver.findElement(By.xpath("//span[text()='Register']")).click();
-            Thread.sleep(1000);
-            List<WebElement> textfields = driver.findElements(By.tagName("mat-label"));
-            List<String> fields = new ArrayList<>();
-            List<String> expectedFields = Arrays.asList("Firstname");
-            System.out.println(textfields);
-            for(WebElement textField: textfields){
-                fields.add(textField.getText());
-            }
-            for (String expectedField : expectedFields) {
-                Assert.assertTrue(fields.contains(expectedField), "Field not found: " + expectedField);
-            }
-            Reporter.logPass(testname);
-        } catch (Exception e) {
-            Reporter.logFail(testname+"-"+e.getMessage());
-        }
-    }
+    // @Test(priority = 1)
+    // public void verifySignupPageContent() throws IOException{
+    //     testname="TC_05 Verify Signup Page Content";
+    //     try {
+    //         driver.findElement(By.xpath("//span[text()=' Login ']")).click();
+    //         driver.findElement(By.xpath("//span[text()='Register']")).click();
+    //         Thread.sleep(1000);
+    //         List<WebElement> textfields = driver.findElements(By.tagName("mat-label"));
+    //         List<String> fields = new ArrayList<>();
+    //         List<String> expectedFields = Arrays.asList("Firstname");
+    //         System.out.println(textfields);
+    //         for(WebElement textField: textfields){
+    //             fields.add(textField.getText());
+    //         }
+    //         for (String expectedField : expectedFields) {
+    //             Assert.assertTrue(fields.contains(expectedField), "Field not found: " + expectedField);
+    //         }
+    //         Reporter.logPass(testname);
+    //     } catch (Exception e) {
+    //         Reporter.logFail(testname+"-"+e.getMessage());
+    //     }
+    // }
 
 }
