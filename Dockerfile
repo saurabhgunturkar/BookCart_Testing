@@ -8,8 +8,11 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
+# Run Maven tests separately with detailed logging
+RUN mvn clean test -e || mvn clean test -X
+
 # Package the application using Maven
-RUN mvn clean package
+RUN mvn package
 
 # Use the official OpenJDK image as the runtime base image
 FROM openjdk:17-jdk-slim
