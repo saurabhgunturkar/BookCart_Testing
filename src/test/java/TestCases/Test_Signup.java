@@ -53,6 +53,7 @@ public class Test_Signup extends Base {
             Boolean registerBtn = driver.findElement(By.xpath("//span[text()='Register']")).isDisplayed();
             Assert.assertTrue(registerBtn);
             Reporter.logPass(testname);
+            System.out.println("Test 1 successfull ++++++++++++++++++++++++++++");
         } catch (Exception e) {
             Reporter.logFail(testname + " - Exception: " + e.getMessage());
         }
