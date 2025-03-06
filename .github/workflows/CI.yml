@@ -30,8 +30,9 @@ jobs:
 
       - name: Install dependencies
         run: mvn install -DskipTests
-        working-directory: src/main
+        working-directory: BookCart_Testing
 
       - name: Run tests
         run: mvn test
-        working-directory: src/test
+        working-directory: BookCart_Testing
+
