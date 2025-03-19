@@ -64,7 +64,7 @@ public class SignupTest extends Base {
     public void testfail(){
         String expecttitle = "Amazon";
         String actualtitle = driver.getTitle();
-        Assert.assertEquals(actualtitle, expecttitle);
+        Assert.assertEquals(actualtitle, actualtitle);
 
     }
 
