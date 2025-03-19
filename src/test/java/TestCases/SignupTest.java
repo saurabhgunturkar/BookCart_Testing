@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import Utilities.Base;
 import Utilities.Reporter;
 
-public class Test_Signup extends Base {
+public class SignupTest extends Base {
 
     public String testname;
 
