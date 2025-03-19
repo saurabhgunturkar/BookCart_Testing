@@ -69,6 +69,7 @@ public class Test_Signup extends Base {
             driver.findElement(By.xpath("//span[text()=' Login ']")).click();
             driver.findElement(By.xpath("//span[text()='wrongtext']")).click();
             String formTitle = driver.findElement(By.xpath("//mat-card-title[text()=' User Registration ']")).getText();
+            System.out.println(formTitle,"++++++++++++++++++++++++++++");
             Assert.assertEquals(formTitle, null);
             Reporter.logPass(testname);
         } catch (Exception e) {
