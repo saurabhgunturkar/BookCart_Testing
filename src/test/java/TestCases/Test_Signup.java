@@ -37,6 +37,7 @@ public class Test_Signup extends Base {
     @AfterMethod
     public void tearDown() {
         driver.quit();
+        System.out.println("Jenkins setup completed ++++++++++++++++++++++++++++");
     }
 
     @AfterSuite
