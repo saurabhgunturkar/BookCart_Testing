@@ -60,22 +60,31 @@ public class SignupTest extends Base {
     //     }
     // }
 
+    @Test
+    public void testfail(){
+        String expecttitle = "Amazon";
+        String actualtitle = driver.getTitle();
+        Assert.assertEquals(actualtitle, expecttitle);
+
+    }
+
+
     
 
-    @Test
-    public void verifyRegisterButtonAccessibility() throws IOException {
-        testname="TC_02 Verify Register Button Accessibility";
-        try {
-            driver.findElement(By.xpath("//span[text()=' Login ']")).click();
-            driver.findElement(By.xpath("//span[text()='wrongtext']")).click();
-            String formTitle = driver.findElement(By.xpath("//mat-card-title[text()=' User Registration ']")).getText();
-            System.out.println(formTitle +"++++++++++++++++++++++++++++");
-            Assert.assertEquals(formTitle, null);
-            Reporter.logPass(testname);
-        } catch (Exception e) {
-            Reporter.logFail(testname +" - "+ e.getMessage());
-        }
-    }
+    // @Test
+    // public void verifyRegisterButtonAccessibility() throws IOException {
+    //     testname="TC_02 Verify Register Button Accessibility";
+    //     try {
+    //         driver.findElement(By.xpath("//span[text()=' Login ']")).click();
+    //         driver.findElement(By.xpath("//span[text()='wrongtext']")).click();
+    //         String formTitle = driver.findElement(By.xpath("//mat-card-title[text()=' User Registration ']")).getText();
+    //         System.out.println(formTitle +"++++++++++++++++++++++++++++");
+    //         Assert.assertEquals(formTitle, null);
+    //         Reporter.logPass(testname);
+    //     } catch (Exception e) {
+    //         Reporter.logFail(testname +" - "+ e.getMessage());
+    //     }
+    // }
 
     // @Test
     // public void verifySignupPageTitle() throws IOException{

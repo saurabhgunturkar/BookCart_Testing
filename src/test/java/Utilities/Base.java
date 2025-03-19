@@ -18,7 +18,7 @@ public class Base {
         switch (browsername.toLowerCase()) {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");
+                // options.addArguments("--headless");
                 driver = new ChromeDriver(options);
                 break;
             case "edge":
@@ -38,7 +38,7 @@ public class Base {
         if (driver != null) {
             driver.manage().window().maximize();
             driver.manage().deleteAllCookies();
-            driver.get("https://bookcart.azurewebsites.net/");
+            driver.get("https://www.amazon.in/");
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         }

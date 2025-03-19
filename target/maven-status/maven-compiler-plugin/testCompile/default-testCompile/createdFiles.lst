@@ -1,5 +1,5 @@
 Utilities\Base.class
 Utilities\Reporter.class
 config\LambdaTestConfig.class
-TestCases\Test_Signup.class
 Utilities\TestNameUtil.class
+TestCases\SignupTest.class
