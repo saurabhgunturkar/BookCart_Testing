@@ -81,10 +81,10 @@ public class Test_Signup extends Base {
         testname="TC_03 Verify Signup page title";
         try {
             driver.findElement(By.xpath("//span[text()=' Login ']")).click();
-            driver.findElement(By.xpath("//span[text()='Register']")).click();
+            driver.findElement(By.xpath("//span[text()='Regist']")).click();
             Thread.sleep(1000);
             String signupPageTitle = driver.getTitle();
-            Assert.assertEquals(signupPageTitle, "Register111");
+            Assert.assertEquals(signupPageTitle, "Register");
             Reporter.logPass(testname);
         } catch (Exception e) {
             Reporter.logFail(testname +" - "+ e.getMessage());
