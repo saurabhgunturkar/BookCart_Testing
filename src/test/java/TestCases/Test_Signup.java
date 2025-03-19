@@ -84,7 +84,7 @@ public class Test_Signup extends Base {
             driver.findElement(By.xpath("//span[text()='Register']")).click();
             Thread.sleep(1000);
             String signupPageTitle = driver.getTitle();
-            Assert.assertEquals(signupPageTitle, "Register");
+            Assert.assertEquals(signupPageTitle, "Register111");
             Reporter.logPass(testname);
         } catch (Exception e) {
             Reporter.logFail(testname +" - "+ e.getMessage());
@@ -98,7 +98,7 @@ public class Test_Signup extends Base {
             driver.findElement(By.xpath("//span[text()=' Login ']")).click();
             driver.findElement(By.xpath("//span[text()='Register']")).click();
             Thread.sleep(1000);
-            Assert.assertTrue(driver.getCurrentUrl().contains("/register111"));
+            Assert.assertTrue(driver.getCurrentUrl().contains("/register"));
             Reporter.logPass(testname);
         }catch(AssertionError a){
             Reporter.logFail(testname+"-"+a.getMessage());
