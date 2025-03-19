@@ -33,5 +33,5 @@ jobs:
         run: mvn install
 
       - name: Run tests
-        run: mvn test
+        run: mvn clean test
         continue-on-error: false
