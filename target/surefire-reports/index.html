@@ -92,7 +92,11 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
+<<<<<<< HEAD
                     <span class="method-stats">4 methods,   4 passed</span>
+=======
+                    <span class="method-stats">1 method,   1 passed</span>
+>>>>>>> 0a7d41bde043ae2118e7437816be2514c4de8654
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,22 +107,7 @@
                     <div class="method-list-content passed suite-Surefire_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="TestCases.Test_Signup" class="method navigator-link" hash-for-method="verifyRegisterButtonAccessibility">verifyRegisterButtonAccessibility</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="TestCases.Test_Signup" class="method navigator-link" hash-for-method="verifyRegisterButtonVisibility">verifyRegisterButtonVisibility</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="TestCases.Test_Signup" class="method navigator-link" hash-for-method="verifySignupPageTitle">verifySignupPageTitle</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="TestCases.Test_Signup" class="method navigator-link" hash-for-method="verifySignupPageURL">verifySignupPageURL</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="TestCases.SignupTest" class="method navigator-link" hash-for-method="testfail">testfail</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Surefire_suite -->
@@ -136,35 +125,14 @@
           <div class="suite-Surefire_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">TestCases.Test_Signup</span>
+              <span class="class-name">TestCases.SignupTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyRegisterButtonAccessibility">
-                  </a> <!-- verifyRegisterButtonAccessibility -->
-                  <span class="method-name">verifyRegisterButtonAccessibility</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyRegisterButtonVisibility">
-                  </a> <!-- verifyRegisterButtonVisibility -->
-                  <span class="method-name">verifyRegisterButtonVisibility</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifySignupPageTitle">
-                  </a> <!-- verifySignupPageTitle -->
-                  <span class="method-name">verifySignupPageTitle</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifySignupPageURL">
-                  </a> <!-- verifySignupPageURL -->
-                  <span class="method-name">verifySignupPageURL</span>
+                  <a name="testfail">
+                  </a> <!-- testfail -->
+                  <span class="method-name">testfail</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -177,10 +145,10 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;1&quot; name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
-  &lt;test thread-count=&quot;1&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
+&lt;suite name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;TestCases.Test_Signup&quot;/&gt;
+      &lt;class name=&quot;TestCases.SignupTest&quot;/&gt;
       &lt;class name=&quot;Utilities.TestNameUtil&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Surefire test --&gt;
@@ -221,6 +189,7 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
+<<<<<<< HEAD
 data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'verifyRegisterButtonAccessibility')
@@ -238,11 +207,22 @@ data.setCell(3, 0, 3)
 data.setCell(3, 1, 'verifyRegisterButtonVisibility')
 data.setCell(3, 2, 'TestCases.Test_Signup')
 data.setCell(3, 3, 614);
+=======
+data.addRows(1);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testfail')
+data.setCell(0, 2, 'TestCases.SignupTest')
+data.setCell(0, 3, 810);
+>>>>>>> 0a7d41bde043ae2118e7437816be2514c4de8654
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
+<<<<<<< HEAD
               <span class="suite-total-time">Total running time: 12 seconds</span>
+=======
+              <span class="suite-total-time">Total running time: 810 ms</span>
+>>>>>>> 0a7d41bde043ae2118e7437816be2514c4de8654
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -268,13 +248,14 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">TestCases.Test_Signup</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">TestCases.SignupTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">suite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">reporr</span>
+<<<<<<< HEAD
                 <span class="method-start">391 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
@@ -328,6 +309,25 @@ return data;
               <div class="configuration-suite after">
                 <span class="method-name">flush</span>
                 <span class="method-start">64848 ms</span>
+=======
+                <span class="method-start">164 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">175 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testfail</span>
+                <span class="method-start">2429 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">3242 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-suite after">
+                <span class="method-name">flush</span>
+                <span class="method-start">3522 ms</span>
+>>>>>>> 0a7d41bde043ae2118e7437816be2514c4de8654
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
