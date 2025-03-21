@@ -11,7 +11,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class Base {
 
-
+    
     public static WebDriver driver;
     
     public static WebDriver localBrowser(String browsername) {

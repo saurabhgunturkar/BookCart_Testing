@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import Utilities.Base;
 import Utilities.Reporter;
 
+
 public class Test_Signup extends Base {
 
     public String testname;
@@ -74,6 +75,11 @@ public class Test_Signup extends Base {
         }
     }
 
+    /**
+     * Verifies the title of the signup page.
+     *
+     * @throws IOException if an I/O error occurs.
+     */
     @Test
     public void verifySignupPageTitle() throws IOException{
         testname="TC_03 Verify Signup page title";
@@ -89,21 +95,22 @@ public class Test_Signup extends Base {
         }
     }
 
-    @Test
-    public void verifySignupPageURL() throws IOException{
-        testname="TC_04 Verify Signup Page URL";
-        try {
-            driver.findElement(By.xpath("//span[text()=' Login ']")).click();
-            driver.findElement(By.xpath("//span[text()='Register']")).click();
-            Thread.sleep(1000);
-            Assert.assertTrue(driver.getCurrentUrl().contains("/register"));
-            Reporter.logPass(testname);
-        }catch(AssertionError a){
-            Reporter.logFail(testname+"-"+a.getMessage());
-        } catch (Exception e) {
-            Reporter.logFail(testname+"-"+e.getMessage());
-        }
+@Test
+public void verifySignupPageURL() throws IOException {
+    String testname = "TC_04 Verify Signup Page URL";
+    try {
+        driver.findElement(By.xpath("//span[text()=' Login ']")).click();
+        driver.findElement(By.xpath("//span[text()='Register']")).click();
+        Thread.sleep(1000);
+        Assert.assertTrue(driver.getCurrentUrl().contains("/register"));
+        Reporter.logPass(testname);
+    } catch (AssertionError a) {
+        Reporter.logFail(testname + "-" + a.getMessage());
+    } catch (Exception e) {
+        Reporter.logFail(testname + "-" + e.getMessage());
     }
+}
+
 
 
     // @Test(priority = 1)

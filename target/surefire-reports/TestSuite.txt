@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 37.572 s <<< FAILURE! - in TestSuite
-verifySignupPageContent(TestCases.Test_Signup)  Time elapsed: 3.173 s  <<< FAILURE!
-java.lang.AssertionError: Field not found: Firstname expected [true] but found [false]
-	at TestCases.Test_Signup.verifySignupPageContent(Test_Signup.java:128)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 66.701 s - in TestSuite
