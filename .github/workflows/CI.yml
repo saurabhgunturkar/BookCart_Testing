@@ -1,10 +1,25 @@
 name: Java CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      browser:
+        type: choice
+        description: what broswer used for test?
+        required: true
+        default: chrome
+        options:
+          - Chrome
+          - Firefox
+      url:
+        required: true
+        description: which url used for test?
+        default: 'https://magento.softwaretestingboard.com/'
+
+  # push:
+  #   branches: [main]
+  # pull_request:
+  #   branches: [main]
 
 jobs:
   test:
@@ -34,3 +49,7 @@ jobs:
       - name: Run tests
         run: mvn test
         continue-on-error: false
+
+
+
+        
