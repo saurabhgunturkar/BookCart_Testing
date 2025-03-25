@@ -1,9 +1,8 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestNG Suite">
-    <test name="TestNG Test">
+<suite name="Test Suite">
+    <test name="Sign Up Test">
         <classes>
-            <class name="TestCases.Test_Signup"/>
-            <class name="TestCases.Test_Login"/>
+            <class name="TestCases.SignupTest" />
+            <!-- <class name="TestCases.TestSetupSuite" /> Include this only if needed -->
         </classes>
     </test>
 </suite>

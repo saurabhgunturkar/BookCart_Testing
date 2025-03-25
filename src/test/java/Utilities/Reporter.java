@@ -1,7 +1,5 @@
 package Utilities;
 
-import java.io.IOException;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -41,10 +39,15 @@ public class Reporter extends Base{
         test.pass(message);
     }
 
-    public static void logFail(String message) throws IOException {
-        test.fail(message);
+    public static void logFail(String message) {
+        try {
+            test.fail(message);
         String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
         test.fail(message, MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     public static void tearDown() {

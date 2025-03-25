@@ -1,5 +1,8 @@
+Utilities\PropertyReader.class
+TestCases\SignupTest.class
 Utilities\Base.class
 Utilities\Reporter.class
-config\LambdaTestConfig.class
+Pages\HomePage.class
+TestCases\TestSuite.class
 Utilities\TestNameUtil.class
-TestCases\SignupTest.class
+Utilities\WebDriverHelper.class
