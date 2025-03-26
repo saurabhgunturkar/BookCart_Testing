@@ -1,0 +1,75 @@
+#name of workflow
+name: Remote Server Browser Test
+
+#events that trigger the workflow
+on:
+    #push event on main branch
+    push:
+        branches: [ main ]
+    #pull request event on main branch
+    pull_request:
+        branches: [ main ]
+
+#environment variables
+env:
+    URL: https://magento.softwaretestingboard.com/
+    BROWSER: chrome
+
+#jobs that run in the workflow
+jobs:
+    #job name : Build
+    build:
+        #runs on ubuntu
+        runs-on: ubuntu-latest
+        #steps in the job
+        steps:
+            #step 1: checkout the repository
+            - name: Checkout repository 
+              uses: actions/checkout@v2
+
+            #step 2: setup java 17
+            - name: Set up JDK 17       
+              uses: actions/setup-java@v3 
+              with:
+                    distribution: 'adopt'
+                    java-version: '17'
+                    cache: maven
+
+            #step 3: cache maven packages
+            - name: Cache Maven packages
+              uses: actions/cache@v2
+              with:
+                    path: ~/.m2/repository
+                    key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+            
+            #step 4: install dependencies
+            - name: install dependencies
+              run: mvn clean install
+
+    #job name: test
+    test:
+        #runs on ubuntu
+        runs-on: ubuntu-latest
+        steps:
+            #step 1: checkout the repository
+            - name: Checkout repository 
+              uses: actions/checkout@v2
+
+            #step 2: setup java 17
+            - name: Set up JDK 17       
+              uses: actions/setup-java@v3 
+              with:
+                    distribution: 'adopt'
+                    java-version: '17'
+                    cache: maven
+
+            #step 3: cache maven packages
+            - name: Cache Maven packages
+              uses: actions/cache@v2
+              with:
+                    path: ~/.m2/repository
+                    key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+
+            #step 4: run for test
+            - name: Run tests
+              run: mvn clean test -Durl=${{env.URL}} -Dbrowser=${{env.BROWSER}}
