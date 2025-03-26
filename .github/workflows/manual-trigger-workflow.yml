@@ -4,16 +4,6 @@ name: Manual Trigger Workflow
 on:
   workflow_dispatch:
     inputs:
-      # browser:
-        # type: choice
-        # description: What browser to use for the test?
-        # required: true
-        # default: Chrome
-        # options:
-        #   - Chrome
-        #   - Firefox
-        #   - Safari
-        #   - Edge
       url:
         required: true
         description: Which URL to use for the test?
@@ -44,9 +34,9 @@ jobs:
       - name: Install dependencies
         run: |
           echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }} by URL ${{ github.event.inputs.url }}"
-          mvn clean install -Dbrowser=Chrome -Durl=${{ github.event.inputs.url }}
+          mvn clean install -Dbrowser=${{ matrix.browser }} -Dplatform=${{ matrix.os }} -Durl=${{ github.event.inputs.url }}
       - name: Run tests
         run: |
-          mvn clean test -Dbrowser=Chrome -Durl=${{ github.event.inputs.url }}
+          mvn clean test -Dbrowser=${{ matrix.browser }} -Dplatform=${{ matrix.os }} -Durl=${{ github.event.inputs.url }}
           echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
         continue-on-error: false
