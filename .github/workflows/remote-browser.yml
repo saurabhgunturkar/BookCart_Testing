@@ -72,4 +72,4 @@ jobs:
 
             #step 4: run for test
             - name: Run tests
-              run: mvn clean test -Durl=${{env.URL}} -Dbrowser=${{env.BROWSER}}
+              run: mvn clean test -Durl=https://magento.softwaretestingboard.com/ -Dbrowser=chrome
