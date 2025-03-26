@@ -7,7 +7,7 @@ public class PropertyReader {
     public static Properties properties;
 
     public static Properties loadProperties() {
-        String configFilePath = "src\\main\\java\\config\\testconfig.properties";
+        String configFilePath = ".\\config\\testconfig.properties";
         try {
             FileInputStream file = new FileInputStream(configFilePath);
             properties = new Properties();
