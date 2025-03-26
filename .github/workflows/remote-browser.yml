@@ -53,7 +53,7 @@ jobs:
         steps:
             #step 1: checkout the repository
             - name: Checkout repository 
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             #step 2: setup java 17
             - name: Set up JDK 17       
@@ -65,7 +65,7 @@ jobs:
 
             #step 3: cache maven packages
             - name: Cache Maven packages
-              uses: actions/cache@v2
+              uses: actions/cache@v4
               with:
                     path: ~/.m2/repository
                     key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
