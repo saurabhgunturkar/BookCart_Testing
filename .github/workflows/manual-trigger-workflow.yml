@@ -1,18 +1,19 @@
+
 name: Manual Trigger Workflow
 
 on:
   workflow_dispatch:
     inputs:
       # browser:
-      #   type: choice
-      #   description: What browser to use for the test?
-      #   required: true
-      #   default: Chrome
-      #   options:
-      #     - Chrome
-      #     - Firefox
-      #     - Safari
-      #     - Edge
+        # type: choice
+        # description: What browser to use for the test?
+        # required: true
+        # default: Chrome
+        # options:
+        #   - Chrome
+        #   - Firefox
+        #   - Safari
+        #   - Edge
       url:
         required: true
         description: Which URL to use for the test?
@@ -23,7 +24,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        browser: [chrome, firefox, safari, edge]
+        browser: [Chrome, Firefox, Safari, Edge]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
@@ -40,10 +41,12 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
       - name: Install dependencies
-        run: echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }} by URL ${{ github.event.inputs.url }}"
-              
+        run: |
+          echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }} by URL ${{ github.event.inputs.url }}"
+          mvn clean install
       - name: Run tests
-        run: echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
+        run: |
+          mvn clean test -Dbrowser=${{ matrix.browser }} -Durl=${{ github.event.inputs.url }}
+          echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
         continue-on-error: false

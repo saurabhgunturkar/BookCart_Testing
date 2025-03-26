@@ -57,8 +57,9 @@ public class Base {
                 
         try {
             String url = System.getProperty("url");
-            String browsername = System.getProperty("browser");
-            switch (browsername.toLowerCase()) {
+            String browser = System.getProperty("browser");
+
+            switch (browser.toLowerCase()) {
                 case "chrome":
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless"); // Add headless argument
