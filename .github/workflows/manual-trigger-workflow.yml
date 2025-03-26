@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: |
           echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }} by URL ${{ github.event.inputs.url }}"
-          mvn clean install -Dplatform=${{ matrix.os }} -Dbrowser=${{ matrix.browser }} -Durl=${{ github.event.inputs.url }}
+          mvn clean install 
       - name: Run tests
         run: |
           mvn clean test -Dplatform=${{ matrix.os }} -Dbrowser=${{ matrix.browser }} -Durl=${{ github.event.inputs.url }}
