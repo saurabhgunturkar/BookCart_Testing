@@ -79,7 +79,7 @@ public class Base {
                     System.out.println("Safari browser is initialized");
                     break;
                 default:
-                    throw new IllegalArgumentException("Browser \"" + browsername + "\" is not supported.");
+                    throw new IllegalArgumentException("Browser \"" + browser + "\" is not supported.");
             }
 
             if (driver != null) {
