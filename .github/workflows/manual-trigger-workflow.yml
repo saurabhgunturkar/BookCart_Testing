@@ -47,7 +47,9 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Install dependencies
-        run: mvn clean install -Dbrowser=${{ matrix.browser }} -Durl=${{ inputs.url }}
+        run: |
+             echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }} by URL ${{ inputs.url }}"
+             mvn clean install -Dbrowser=${{ matrix.browser }} -Durl=${{ inputs.url }}
 
       - name: Run tests
         run: | 
