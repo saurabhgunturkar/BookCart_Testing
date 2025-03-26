@@ -1,12 +1,11 @@
 name: Manual Trigger Workflow
 
-#Manually trigger
 on:
   workflow_dispatch:
     inputs:
       # browser:
       #   type: choice
-      #   description: what broswer used for test?
+      #   description: What browser to use for the test?
       #   required: true
       #   default: Chrome
       #   options:
@@ -16,10 +15,8 @@ on:
       #     - Edge
       url:
         required: true
-        description: which url used for test?
+        description: Which URL to use for the test?
         default: 'https://magento.softwaretestingboard.com/'
-
-
 
 jobs:
   build_and_test:
@@ -31,13 +28,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
           java-version: '17'
-
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
@@ -48,15 +43,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-             echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }} by URL ${{ inputs.url }}"
-             mvn clean install -Dbrowser=${{ matrix.browser }} -Durl=${{ inputs.url }}
-
+          echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }} by URL ${{ github.event.inputs.url }}"
+          mvn clean install -Dbrowser=${{ matrix.browser }} -Durl=${{ github.event.inputs.url }}
+      
       - name: Run tests
         run: | 
-          mvn clean test -Dbrowser=${{ matrix.browser }} -Durl=${{ inputs.url }}
+          mvn clean test -Dbrowser=${{ matrix.browser }} -Durl=${{ github.event.inputs.url }}
           echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
         continue-on-error: false
-
-
-
-        
