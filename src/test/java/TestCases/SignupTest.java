@@ -74,9 +74,15 @@ public class SignupTest extends Base {
     // }
 
     @Test
-    public void testdemo(){
+    public void testcheck_with_testPrintEnvVariable(){
         System.out.println("Test case passed......");
+        
+        // get env.variable value form workflow file i.e. remote-browser.yml
+        String myName = System.getenv("MY_NAME");
+        System.out.println("MY_NAME: " + myName);
     }
+
+    
     
 
 
