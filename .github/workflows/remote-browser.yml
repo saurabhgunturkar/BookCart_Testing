@@ -44,7 +44,7 @@ jobs:
             
             #step 4: install dependencies
             - name: install dependencies
-              run: mvn clean install
+              run: mvn clean install -Durl=https://magento.softwaretestingboard.com/ -Dbrowser=chrome
 
     #job name: test
     test:
