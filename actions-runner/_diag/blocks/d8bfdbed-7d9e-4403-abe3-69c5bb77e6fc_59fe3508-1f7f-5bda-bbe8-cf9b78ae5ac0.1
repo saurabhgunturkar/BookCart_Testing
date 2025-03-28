@@ -1,0 +1,269 @@
+﻿2025-03-28T11:01:55.9924189Z Current runner version: '2.323.0'
+2025-03-28T11:01:55.9936703Z Runner name: '5CG1377PDZ'
+2025-03-28T11:01:55.9937689Z Machine name: '5CG1377PDZ'
+2025-03-28T11:01:55.9944254Z ##[group]GITHUB_TOKEN Permissions
+2025-03-28T11:01:55.9947215Z Actions: write
+2025-03-28T11:01:55.9947769Z Attestations: write
+2025-03-28T11:01:55.9948274Z Checks: write
+2025-03-28T11:01:55.9948790Z Contents: write
+2025-03-28T11:01:55.9949259Z Deployments: write
+2025-03-28T11:01:55.9949799Z Discussions: write
+2025-03-28T11:01:55.9950414Z Issues: write
+2025-03-28T11:01:55.9951052Z Metadata: read
+2025-03-28T11:01:55.9951495Z Models: read
+2025-03-28T11:01:55.9951967Z Packages: write
+2025-03-28T11:01:55.9952397Z Pages: write
+2025-03-28T11:01:55.9952899Z PullRequests: write
+2025-03-28T11:01:55.9953463Z RepositoryProjects: write
+2025-03-28T11:01:55.9954011Z SecurityEvents: write
+2025-03-28T11:01:55.9954552Z Statuses: write
+2025-03-28T11:01:55.9955046Z ##[endgroup]
+2025-03-28T11:01:55.9957772Z Secret source: Actions
+2025-03-28T11:01:55.9958632Z Prepare workflow directory
+2025-03-28T11:01:56.0403252Z Prepare all required actions
+2025-03-28T11:01:56.0445946Z Getting action download info
+2025-03-28T11:01:57.0293504Z Download action repository 'actions/checkout@v3' (SHA:f43a0e5ff2bd294095638e18286ca9a3d1956744)
+2025-03-28T11:01:58.7796237Z Complete job name: build
+2025-03-28T11:01:58.9888634Z ##[group]Run actions/checkout@v3
+2025-03-28T11:01:58.9890126Z with:
+2025-03-28T11:01:58.9890735Z   repository: saurabhgunturkar/BookCart_Testing
+2025-03-28T11:01:58.9891889Z   token: ***
+2025-03-28T11:01:58.9892362Z   ssh-strict: true
+2025-03-28T11:01:58.9892868Z   persist-credentials: true
+2025-03-28T11:01:58.9893418Z   clean: true
+2025-03-28T11:01:58.9893900Z   sparse-checkout-cone-mode: true
+2025-03-28T11:01:58.9894490Z   fetch-depth: 1
+2025-03-28T11:01:58.9894920Z   fetch-tags: false
+2025-03-28T11:01:58.9895432Z   lfs: false
+2025-03-28T11:01:58.9895903Z   submodules: false
+2025-03-28T11:01:58.9896448Z   set-safe-directory: true
+2025-03-28T11:01:58.9897673Z ##[endgroup]
+2025-03-28T11:02:02.7637386Z Syncing repository: saurabhgunturkar/BookCart_Testing
+2025-03-28T11:02:02.7640423Z ##[group]Getting Git version info
+2025-03-28T11:02:02.7641929Z Working directory is 'C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\BookCart_Testing\BookCart_Testing'
+2025-03-28T11:02:02.7917313Z [command]"C:\Program Files\Git\cmd\git.exe" version
+2025-03-28T11:02:02.8900169Z git version 2.43.0.windows.1
+2025-03-28T11:02:02.9007257Z ##[endgroup]
+2025-03-28T11:02:02.9064029Z Copying 'C:\Users\10740035\.gitconfig' to 'C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\_temp\acc92a55-fa41-4c9d-a60d-1adfc6889c1e\.gitconfig'
+2025-03-28T11:02:02.9270417Z Temporarily overriding HOME='C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\_temp\acc92a55-fa41-4c9d-a60d-1adfc6889c1e' before making global git config changes
+2025-03-28T11:02:02.9279233Z Adding repository directory to the temporary git global config as a safe directory
+2025-03-28T11:02:02.9281875Z [command]"C:\Program Files\Git\cmd\git.exe" config --global --add safe.directory "C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\BookCart_Testing\BookCart_Testing"
+2025-03-28T11:02:03.0287354Z Deleting the contents of 'C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\BookCart_Testing\BookCart_Testing'
+2025-03-28T11:02:03.0301548Z ##[group]Initializing the repository
+2025-03-28T11:02:03.0313120Z [command]"C:\Program Files\Git\cmd\git.exe" init "C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\BookCart_Testing\BookCart_Testing"
+2025-03-28T11:02:03.1546036Z Initialized empty Git repository in C:/Users/10740035/Desktop/ecom app testing/BookCart/automation/actions-runner/_work/BookCart_Testing/BookCart_Testing/.git/
+2025-03-28T11:02:03.1796418Z [command]"C:\Program Files\Git\cmd\git.exe" remote add origin https://github.com/saurabhgunturkar/BookCart_Testing
+2025-03-28T11:02:03.3136171Z ##[endgroup]
+2025-03-28T11:02:03.3137242Z ##[group]Disabling automatic garbage collection
+2025-03-28T11:02:03.3150094Z [command]"C:\Program Files\Git\cmd\git.exe" config --local gc.auto 0
+2025-03-28T11:02:03.4197555Z ##[endgroup]
+2025-03-28T11:02:03.4198638Z ##[group]Setting up auth
+2025-03-28T11:02:03.4199699Z [command]"C:\Program Files\Git\cmd\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-03-28T11:02:03.5078880Z [command]"C:\Program Files\Git\cmd\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-03-28T11:02:06.1265608Z [command]"C:\Program Files\Git\cmd\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-03-28T11:02:06.2448638Z [command]"C:\Program Files\Git\cmd\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-03-28T11:02:08.7068936Z [command]"C:\Program Files\Git\cmd\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2025-03-28T11:02:08.8436627Z ##[endgroup]
+2025-03-28T11:02:08.8438159Z ##[group]Fetching the repository
+2025-03-28T11:02:08.8483653Z [command]"C:\Program Files\Git\cmd\git.exe" -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +4de17ff69f72606c8b398a6b4ed8bd605379a987:refs/remotes/origin/main
+2025-03-28T11:02:10.9226721Z remote: Enumerating objects: 92, done.        
+2025-03-28T11:02:10.9227955Z remote: Counting objects:   1% (1/92)        
+2025-03-28T11:02:10.9254871Z remote: Counting objects:   2% (2/92)        
+2025-03-28T11:02:10.9256316Z remote: Counting objects:   3% (3/92)        
+2025-03-28T11:02:10.9257795Z remote: Counting objects:   4% (4/92)        
+2025-03-28T11:02:10.9306018Z remote: Counting objects:   5% (5/92)        
+2025-03-28T11:02:10.9328882Z remote: Counting objects:   6% (6/92)        
+2025-03-28T11:02:10.9333856Z remote: Counting objects:   7% (7/92)        
+2025-03-28T11:02:10.9334827Z remote: Counting objects:   8% (8/92)        
+2025-03-28T11:02:10.9335548Z remote: Counting objects:   9% (9/92)        
+2025-03-28T11:02:10.9336257Z remote: Counting objects:  10% (10/92)        
+2025-03-28T11:02:10.9336977Z remote: Counting objects:  11% (11/92)        
+2025-03-28T11:02:10.9337594Z remote: Counting objects:  13% (12/92)        
+2025-03-28T11:02:10.9338215Z remote: Counting objects:  14% (13/92)        
+2025-03-28T11:02:10.9338841Z remote: Counting objects:  15% (14/92)        
+2025-03-28T11:02:10.9339468Z remote: Counting objects:  16% (15/92)        
+2025-03-28T11:02:10.9340172Z remote: Counting objects:  17% (16/92)        
+2025-03-28T11:02:10.9340928Z remote: Counting objects:  18% (17/92)        
+2025-03-28T11:02:10.9341809Z remote: Counting objects:  19% (18/92)        
+2025-03-28T11:02:10.9342463Z remote: Counting objects:  20% (19/92)        
+2025-03-28T11:02:10.9343099Z remote: Counting objects:  21% (20/92)        
+2025-03-28T11:02:10.9343806Z remote: Counting objects:  22% (21/92)        
+2025-03-28T11:02:10.9344488Z remote: Counting objects:  23% (22/92)        
+2025-03-28T11:02:10.9345141Z remote: Counting objects:  25% (23/92)        
+2025-03-28T11:02:10.9345730Z remote: Counting objects:  26% (24/92)        
+2025-03-28T11:02:10.9346375Z remote: Counting objects:  27% (25/92)        
+2025-03-28T11:02:10.9347015Z remote: Counting objects:  28% (26/92)        
+2025-03-28T11:02:10.9347689Z remote: Counting objects:  29% (27/92)        
+2025-03-28T11:02:10.9348318Z remote: Counting objects:  30% (28/92)        
+2025-03-28T11:02:10.9349015Z remote: Counting objects:  31% (29/92)        
+2025-03-28T11:02:10.9349762Z remote: Counting objects:  32% (30/92)        
+2025-03-28T11:02:10.9350398Z remote: Counting objects:  33% (31/92)        
+2025-03-28T11:02:10.9353406Z remote: Counting objects:  34% (32/92)        
+2025-03-28T11:02:10.9354157Z remote: Counting objects:  35% (33/92)        
+2025-03-28T11:02:10.9355019Z remote: Counting objects:  36% (34/92)        
+2025-03-28T11:02:10.9355758Z remote: Counting objects:  38% (35/92)        
+2025-03-28T11:02:10.9356455Z remote: Counting objects:  39% (36/92)        
+2025-03-28T11:02:10.9357242Z remote: Counting objects:  40% (37/92)        
+2025-03-28T11:02:10.9358191Z remote: Counting objects:  41% (38/92)        
+2025-03-28T11:02:10.9358854Z remote: Counting objects:  42% (39/92)        
+2025-03-28T11:02:10.9359486Z remote: Counting objects:  43% (40/92)        
+2025-03-28T11:02:10.9360115Z remote: Counting objects:  44% (41/92)        
+2025-03-28T11:02:10.9360787Z remote: Counting objects:  45% (42/92)        
+2025-03-28T11:02:10.9361416Z remote: Counting objects:  46% (43/92)        
+2025-03-28T11:02:10.9362226Z remote: Counting objects:  47% (44/92)        
+2025-03-28T11:02:10.9362963Z remote: Counting objects:  48% (45/92)        
+2025-03-28T11:02:10.9363645Z remote: Counting objects:  50% (46/92)        
+2025-03-28T11:02:10.9364414Z remote: Counting objects:  51% (47/92)        
+2025-03-28T11:02:10.9365187Z remote: Counting objects:  52% (48/92)        
+2025-03-28T11:02:10.9368288Z remote: Counting objects:  53% (49/92)        
+2025-03-28T11:02:10.9369213Z remote: Counting objects:  54% (50/92)        
+2025-03-28T11:02:10.9369893Z remote: Counting objects:  55% (51/92)        
+2025-03-28T11:02:10.9370684Z remote: Counting objects:  56% (52/92)        
+2025-03-28T11:02:10.9371335Z remote: Counting objects:  57% (53/92)        
+2025-03-28T11:02:10.9371960Z remote: Counting objects:  58% (54/92)        
+2025-03-28T11:02:10.9372649Z remote: Counting objects:  59% (55/92)        
+2025-03-28T11:02:10.9373269Z remote: Counting objects:  60% (56/92)        
+2025-03-28T11:02:10.9373999Z remote: Counting objects:  61% (57/92)        
+2025-03-28T11:02:10.9374853Z remote: Counting objects:  63% (58/92)        
+2025-03-28T11:02:10.9375487Z remote: Counting objects:  64% (59/92)        
+2025-03-28T11:02:10.9376152Z remote: Counting objects:  65% (60/92)        
+2025-03-28T11:02:10.9376869Z remote: Counting objects:  66% (61/92)        
+2025-03-28T11:02:10.9377575Z remote: Counting objects:  67% (62/92)        
+2025-03-28T11:02:10.9378239Z remote: Counting objects:  68% (63/92)        
+2025-03-28T11:02:10.9378992Z remote: Counting objects:  69% (64/92)        
+2025-03-28T11:02:10.9379638Z remote: Counting objects:  70% (65/92)        
+2025-03-28T11:02:10.9380408Z remote: Counting objects:  71% (66/92)        
+2025-03-28T11:02:10.9381050Z remote: Counting objects:  72% (67/92)        
+2025-03-28T11:02:10.9381697Z remote: Counting objects:  73% (68/92)        
+2025-03-28T11:02:10.9382313Z remote: Counting objects:  75% (69/92)        
+2025-03-28T11:02:10.9382925Z remote: Counting objects:  76% (70/92)        
+2025-03-28T11:02:10.9383790Z remote: Counting objects:  77% (71/92)        
+2025-03-28T11:02:10.9384410Z remote: Counting objects:  78% (72/92)        
+2025-03-28T11:02:10.9385090Z remote: Counting objects:  79% (73/92)        
+2025-03-28T11:02:10.9385758Z remote: Counting objects:  80% (74/92)        
+2025-03-28T11:02:10.9386427Z remote: Counting objects:  81% (75/92)        
+2025-03-28T11:02:10.9387110Z remote: Counting objects:  82% (76/92)        
+2025-03-28T11:02:10.9387778Z remote: Counting objects:  83% (77/92)        
+2025-03-28T11:02:10.9388475Z remote: Counting objects:  84% (78/92)        
+2025-03-28T11:02:10.9389102Z remote: Counting objects:  85% (79/92)        
+2025-03-28T11:02:10.9389751Z remote: Counting objects:  86% (80/92)        
+2025-03-28T11:02:10.9390420Z remote: Counting objects:  88% (81/92)        
+2025-03-28T11:02:10.9391211Z remote: Counting objects:  89% (82/92)        
+2025-03-28T11:02:10.9391859Z remote: Counting objects:  90% (83/92)        
+2025-03-28T11:02:10.9392497Z remote: Counting objects:  91% (84/92)        
+2025-03-28T11:02:10.9393844Z remote: Counting objects:  92% (85/92)        
+2025-03-28T11:02:10.9394596Z remote: Counting objects:  93% (86/92)        
+2025-03-28T11:02:10.9395249Z remote: Counting objects:  94% (87/92)        
+2025-03-28T11:02:10.9396334Z remote: Counting objects:  95% (88/92)        
+2025-03-28T11:02:10.9398218Z remote: Counting objects:  96% (89/92)        
+2025-03-28T11:02:10.9399238Z remote: Counting objects:  97% (90/92)        
+2025-03-28T11:02:10.9399932Z remote: Counting objects:  98% (91/92)        
+2025-03-28T11:02:10.9400572Z remote: Counting objects: 100% (92/92)        
+2025-03-28T11:02:10.9401226Z remote: Counting objects: 100% (92/92), done.        
+2025-03-28T11:02:10.9402040Z remote: Compressing objects:   1% (1/74)        
+2025-03-28T11:02:10.9402751Z remote: Compressing objects:   2% (2/74)        
+2025-03-28T11:02:10.9403405Z remote: Compressing objects:   4% (3/74)        
+2025-03-28T11:02:10.9404175Z remote: Compressing objects:   5% (4/74)        
+2025-03-28T11:02:10.9404879Z remote: Compressing objects:   6% (5/74)        
+2025-03-28T11:02:10.9405652Z remote: Compressing objects:   8% (6/74)        
+2025-03-28T11:02:10.9406298Z remote: Compressing objects:   9% (7/74)        
+2025-03-28T11:02:10.9406919Z remote: Compressing objects:  10% (8/74)        
+2025-03-28T11:02:10.9408164Z remote: Compressing objects:  12% (9/74)        
+2025-03-28T11:02:10.9410170Z remote: Compressing objects:  13% (10/74)        
+2025-03-28T11:02:10.9411027Z remote: Compressing objects:  14% (11/74)        
+2025-03-28T11:02:10.9411805Z remote: Compressing objects:  16% (12/74)        
+2025-03-28T11:02:10.9412573Z remote: Compressing objects:  17% (13/74)        
+2025-03-28T11:02:10.9413264Z remote: Compressing objects:  18% (14/74)        
+2025-03-28T11:02:10.9414326Z remote: Compressing objects:  20% (15/74)        
+2025-03-28T11:02:10.9415688Z remote: Compressing objects:  21% (16/74)        
+2025-03-28T11:02:10.9417085Z remote: Compressing objects:  22% (17/74)        
+2025-03-28T11:02:10.9421653Z remote: Compressing objects:  24% (18/74)        
+2025-03-28T11:02:10.9423078Z remote: Compressing objects:  25% (19/74)        
+2025-03-28T11:02:10.9424018Z remote: Compressing objects:  27% (20/74)        
+2025-03-28T11:02:10.9426946Z remote: Compressing objects:  28% (21/74)        
+2025-03-28T11:02:10.9427711Z remote: Compressing objects:  29% (22/74)        
+2025-03-28T11:02:10.9428435Z remote: Compressing objects:  31% (23/74)        
+2025-03-28T11:02:10.9429177Z remote: Compressing objects:  32% (24/74)        
+2025-03-28T11:02:10.9429871Z remote: Compressing objects:  33% (25/74)        
+2025-03-28T11:02:10.9430572Z remote: Compressing objects:  35% (26/74)        
+2025-03-28T11:02:10.9431447Z remote: Compressing objects:  36% (27/74)        
+2025-03-28T11:02:10.9432183Z remote: Compressing objects:  37% (28/74)        
+2025-03-28T11:02:10.9432923Z remote: Compressing objects:  39% (29/74)        
+2025-03-28T11:02:10.9433619Z remote: Compressing objects:  40% (30/74)        
+2025-03-28T11:02:10.9434328Z remote: Compressing objects:  41% (31/74)        
+2025-03-28T11:02:10.9435166Z remote: Compressing objects:  43% (32/74)        
+2025-03-28T11:02:10.9636788Z remote: Compressing objects:  44% (33/74)        
+2025-03-28T11:02:10.9637888Z remote: Compressing objects:  45% (34/74)        
+2025-03-28T11:02:10.9638764Z remote: Compressing objects:  47% (35/74)        
+2025-03-28T11:02:10.9639617Z remote: Compressing objects:  48% (36/74)        
+2025-03-28T11:02:10.9640512Z remote: Compressing objects:  50% (37/74)        
+2025-03-28T11:02:10.9641271Z remote: Compressing objects:  51% (38/74)        
+2025-03-28T11:02:10.9642020Z remote: Compressing objects:  52% (39/74)        
+2025-03-28T11:02:10.9642826Z remote: Compressing objects:  54% (40/74)        
+2025-03-28T11:02:10.9643675Z remote: Compressing objects:  55% (41/74)        
+2025-03-28T11:02:10.9644502Z remote: Compressing objects:  56% (42/74)        
+2025-03-28T11:02:10.9646315Z remote: Compressing objects:  58% (43/74)        
+2025-03-28T11:02:10.9647146Z remote: Compressing objects:  59% (44/74)        
+2025-03-28T11:02:10.9647982Z remote: Compressing objects:  60% (45/74)        
+2025-03-28T11:02:10.9648925Z remote: Compressing objects:  62% (46/74)        
+2025-03-28T11:02:10.9649732Z remote: Compressing objects:  63% (47/74)        
+2025-03-28T11:02:10.9650570Z remote: Compressing objects:  64% (48/74)        
+2025-03-28T11:02:10.9651399Z remote: Compressing objects:  66% (49/74)        
+2025-03-28T11:02:10.9652255Z remote: Compressing objects:  67% (50/74)        
+2025-03-28T11:02:10.9653111Z remote: Compressing objects:  68% (51/74)        
+2025-03-28T11:02:10.9654096Z remote: Compressing objects:  70% (52/74)        
+2025-03-28T11:02:10.9654875Z remote: Compressing objects:  71% (53/74)        
+2025-03-28T11:02:10.9655803Z remote: Compressing objects:  72% (54/74)        
+2025-03-28T11:02:10.9656638Z remote: Compressing objects:  74% (55/74)        
+2025-03-28T11:02:10.9657734Z remote: Compressing objects:  75% (56/74)        
+2025-03-28T11:02:10.9658551Z remote: Compressing objects:  77% (57/74)        
+2025-03-28T11:02:10.9659519Z remote: Compressing objects:  78% (58/74)        
+2025-03-28T11:02:10.9660366Z remote: Compressing objects:  79% (59/74)        
+2025-03-28T11:02:10.9662096Z remote: Compressing objects:  81% (60/74)        
+2025-03-28T11:02:10.9663070Z remote: Compressing objects:  82% (61/74)        
+2025-03-28T11:02:10.9663900Z remote: Compressing objects:  83% (62/74)        
+2025-03-28T11:02:10.9664742Z remote: Compressing objects:  85% (63/74)        
+2025-03-28T11:02:10.9665569Z remote: Compressing objects:  86% (64/74)        
+2025-03-28T11:02:10.9666387Z remote: Compressing objects:  87% (65/74)        
+2025-03-28T11:02:10.9667255Z remote: Compressing objects:  89% (66/74)        
+2025-03-28T11:02:10.9668102Z remote: Compressing objects:  90% (67/74)        
+2025-03-28T11:02:10.9668910Z remote: Compressing objects:  91% (68/74)        
+2025-03-28T11:02:10.9669786Z remote: Compressing objects:  93% (69/74)        
+2025-03-28T11:02:10.9670627Z remote: Compressing objects:  94% (70/74)        
+2025-03-28T11:02:10.9671460Z remote: Compressing objects:  95% (71/74)        
+2025-03-28T11:02:10.9672291Z remote: Compressing objects:  97% (72/74)        
+2025-03-28T11:02:10.9673149Z remote: Compressing objects:  98% (73/74)        
+2025-03-28T11:02:10.9674168Z remote: Compressing objects: 100% (74/74)        
+2025-03-28T11:02:10.9675125Z remote: Compressing objects: 100% (74/74), done.        
+2025-03-28T11:02:11.4571752Z remote: Total 92 (delta 6), reused 58 (delta 4), pack-reused 0 (from 0)        
+2025-03-28T11:02:11.8819090Z From https://github.com/saurabhgunturkar/BookCart_Testing
+2025-03-28T11:02:11.8820944Z  * [new ref]         4de17ff69f72606c8b398a6b4ed8bd605379a987 -> origin/main
+2025-03-28T11:02:11.9945235Z ##[endgroup]
+2025-03-28T11:02:11.9946066Z ##[group]Determining the checkout info
+2025-03-28T11:02:11.9951157Z ##[endgroup]
+2025-03-28T11:02:11.9952820Z ##[group]Checking out the ref
+2025-03-28T11:02:11.9972105Z [command]"C:\Program Files\Git\cmd\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2025-03-28T11:02:12.3879063Z branch 'main' set up to track 'origin/main'.
+2025-03-28T11:02:12.3935803Z Switched to a new branch 'main'
+2025-03-28T11:02:12.4360670Z ##[endgroup]
+2025-03-28T11:02:12.9842118Z [command]"C:\Program Files\Git\cmd\git.exe" log -1 --format='%H'
+2025-03-28T11:02:13.2195287Z '4de17ff69f72606c8b398a6b4ed8bd605379a987'
+2025-03-28T11:02:13.6327865Z ##[group]Run echo "Building on self-hosted runner!"
+2025-03-28T11:02:13.6329185Z [36;1mecho "Building on self-hosted runner!"[0m
+2025-03-28T11:02:13.7004675Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2025-03-28T11:02:13.7005939Z ##[endgroup]
+2025-03-28T11:02:15.0615552Z Building on self-hosted runner!
+2025-03-28T11:02:15.4286303Z Post job cleanup.
+2025-03-28T11:02:17.0088735Z [command]"C:\Program Files\Git\cmd\git.exe" version
+2025-03-28T11:02:17.1662013Z git version 2.43.0.windows.1
+2025-03-28T11:02:17.1983716Z Copying 'C:\Users\10740035\.gitconfig' to 'C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\_temp\f9077e4a-af86-4711-a55c-d5145711d0be\.gitconfig'
+2025-03-28T11:02:17.2236934Z Temporarily overriding HOME='C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\_temp\f9077e4a-af86-4711-a55c-d5145711d0be' before making global git config changes
+2025-03-28T11:02:17.2308509Z Adding repository directory to the temporary git global config as a safe directory
+2025-03-28T11:02:17.2360834Z [command]"C:\Program Files\Git\cmd\git.exe" config --global --add safe.directory "C:\Users\10740035\Desktop\ecom app testing\BookCart\automation\actions-runner\_work\BookCart_Testing\BookCart_Testing"
+2025-03-28T11:02:17.3571656Z [command]"C:\Program Files\Git\cmd\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-03-28T11:02:17.5161489Z [command]"C:\Program Files\Git\cmd\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-03-28T11:02:19.7107024Z [command]"C:\Program Files\Git\cmd\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-03-28T11:02:19.8361925Z http.https://github.com/.extraheader
+2025-03-28T11:02:19.8475652Z [command]"C:\Program Files\Git\cmd\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2025-03-28T11:02:19.9746364Z [command]"C:\Program Files\Git\cmd\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-03-28T11:02:22.3419059Z Cleaning up orphan processes
