@@ -1,16 +1,17 @@
-const https = require('https')
-const fs = require('fs')
-const http = require('http')
-const hostname = process.env['HOSTNAME'] || ''
-const port = process.env['PORT'] || ''
-const path = process.env['PATH'] || ''
-const pat = process.env['PAT'] || ''
-const proxyHost = process.env['PROXYHOST'] || ''
-const proxyPort = process.env['PROXYPORT'] || ''
-const proxyUsername = process.env['PROXYUSERNAME'] || ''
-const proxyPassword = process.env['PROXYPASSWORD'] || ''
+import fs from 'fs';
+import http from 'http';
+import https from 'https';
 
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
+const hostname = process.env['hostname'] || '';
+const port = process.env['port'] || '';
+const path = process.env['path'] || '';
+const pat = process.env['pat'] || '';
+const proxyHost = process.env['proxyHost'] || '';
+const proxyPort = process.env['proxyPort'] || '';
+const proxyUsername = process.env['proxyUsername'] || '';
+const proxyPassword = process.env['proxyPassword'] || '';
+
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
 if (proxyHost === '') {
     const options = {
