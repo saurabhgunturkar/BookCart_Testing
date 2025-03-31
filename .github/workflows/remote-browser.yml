@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v4 # Updated to the latest version
         with:
           name: test-reports
-          path: target/surefire-reports/ # Replace with the correct path if needed
+          path: testReports # Replace with the correct path if needed
           if-no-files-found: warn
 
   check_test_report_status:
