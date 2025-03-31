@@ -45,7 +45,7 @@ jobs:
             
             #step 4: install dependencies
             - name: install dependencies
-              run: mvn clean install -Durl=${{env.URL}} -Dbrowser=${{env.BROWSER}}
+              run: mvn clean package -DskipTests -Durl=${{env.URL}} -Dbrowser=${{env.BROWSER}}
 
     #job name: test
     
@@ -66,8 +66,8 @@ jobs:
                     java-version: '17'
                     cache: maven
 
-            #step 3: cache maven packages
-            - name: Cache Maven packages
+            #step 3: Restore maven cache
+            - name: Restore Maven cache
               uses: actions/cache@v4
               with:
                     path: ~/.m2/repository
@@ -76,3 +76,10 @@ jobs:
             #step 4: run for test
             - name: Run tests
               run: mvn clean test -Durl=${{env.URL}} -Dbrowser=${{env.BROWSER}}
+
+               # Step 5: Upload Test Reports
+            - name: Upload Test Reports
+              uses: actions/upload-artifact@v3
+              with:
+                  name: test-reports
+                  path: target/surefire-reports/ # Upload Maven Surefire test reports
