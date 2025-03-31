@@ -97,18 +97,19 @@ jobs:
           name: test-reports
           path: testReports
 
-      - name: Copy Test Report
+      - name: Prepare Artifact for Deployment
         run: |
-          if [ ! -f testReports/index.html ]; then
-            echo "Test report not found!"
-            exit 1
-          fi
-          cp testReports/index.html index.html
+            if [ ! -f testReports/index.html ]; then
+              echo "Test report not found!"
+              exit 1
+            fi
+            mkdir -p deployment-dir # Create a directory for deployment
+            cp testReports/index.html deployment-dir/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'testReports/index.html'
+          path: deployment-dir
 
       - name: Deploy to GitHub Pages
         id: deployment
