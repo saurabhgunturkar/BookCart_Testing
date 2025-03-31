@@ -87,6 +87,9 @@ jobs:
   deploy_test_report:
     needs: [test, check_test_report_status]
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Grant the required permission for OIDC token
+      pages: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
