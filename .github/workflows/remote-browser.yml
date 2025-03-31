@@ -69,7 +69,7 @@ jobs:
   check_test_report_status:
     needs: test
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: Download Test Reports
         uses: actions/download-artifact@v4
         with:
