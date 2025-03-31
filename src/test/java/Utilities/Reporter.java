@@ -16,7 +16,7 @@ public class Reporter extends Base{
     private static ExtentTest test;
 
     public static void setUpReport() {
-        String reportPath = "testReports/extentReport.html";
+        String reportPath = "testReports/index.html";
         File reportDir = new File("testReports");
         if (!reportDir.exists()) {
             reportDir.mkdirs();

@@ -78,4 +78,8 @@ jobs:
         uses: actions/upload-artifact@v4 # Updated to the latest version
         with:
           name: test-reports
-          path: testReports\extentReport.html # Upload Maven Surefire test reports
+          path: testReports/index.html
+          if-no-files-found: warn
+          compression-level: 6
+          overwrite: false
+          include-hidden-files: false # Upload Maven Surefire test reports
