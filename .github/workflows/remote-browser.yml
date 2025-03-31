@@ -60,7 +60,7 @@ jobs:
         run: mvn clean test -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
 
       - name: Upload Test Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: test-reports
           path: testReports/index.html
