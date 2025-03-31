@@ -26,8 +26,8 @@ public class SignupTest extends Base {
 
     @BeforeMethod
     public void setup() throws MalformedURLException {
-        driver = localBrowser();
-        // driver = remoteBrowser();
+        // driver = localBrowser();
+        driver = remoteBrowser();
 
     }
 
