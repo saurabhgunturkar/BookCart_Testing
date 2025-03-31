@@ -2,34 +2,34 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-26T17:37:15 IST" name="Surefire suite" finished-at="2025-03-26T17:37:37 IST" duration-ms="22578">
+  <suite started-at="2025-03-31T14:54:09 IST" name="Surefire suite" finished-at="2025-03-31T14:54:25 IST" duration-ms="15577">
     <groups>
     </groups>
-    <test started-at="2025-03-26T17:37:15 IST" name="Surefire test" finished-at="2025-03-26T17:37:37 IST" duration-ms="22578">
+    <test started-at="2025-03-31T14:54:09 IST" name="Surefire test" finished-at="2025-03-31T14:54:25 IST" duration-ms="15577">
       <class name="TestCases.SignupTest">
-        <test-method is-config="true" signature="testReport()[pri:0, instance:TestCases.SignupTest@4313f5bc]" started-at="2025-03-26T17:37:15 IST" name="testReport" finished-at="2025-03-26T17:37:15 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testReport()[pri:0, instance:TestCases.SignupTest@4313f5bc]" started-at="2025-03-31T14:54:09 IST" name="testReport" finished-at="2025-03-31T14:54:09 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testReport -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.SignupTest@4313f5bc]" started-at="2025-03-26T17:37:15 IST" name="setup" finished-at="2025-03-26T17:37:37 IST" duration-ms="22174" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.SignupTest@4313f5bc]" started-at="2025-03-31T14:54:09 IST" name="setup" finished-at="2025-03-31T14:54:24 IST" duration-ms="15232" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testcheck_with_testPrintEnvVariable()[pri:0, instance:TestCases.SignupTest@4313f5bc]" started-at="2025-03-26T17:37:37 IST" name="testcheck_with_testPrintEnvVariable" finished-at="2025-03-26T17:37:37 IST" duration-ms="8" status="PASS">
+        <test-method signature="testcheck_with_testPrintEnvVariable()[pri:0, instance:TestCases.SignupTest@4313f5bc]" started-at="2025-03-31T14:54:24 IST" name="testcheck_with_testPrintEnvVariable" finished-at="2025-03-31T14:54:24 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testcheck_with_testPrintEnvVariable -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCases.SignupTest@4313f5bc]" started-at="2025-03-26T17:37:37 IST" name="tearDown" finished-at="2025-03-26T17:37:37 IST" duration-ms="330" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCases.SignupTest@4313f5bc]" started-at="2025-03-31T14:54:24 IST" name="tearDown" finished-at="2025-03-31T14:54:25 IST" duration-ms="290" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- TestCases.SignupTest -->
       <class name="TestCases.TestSuite">
-        <test-method is-config="true" signature="suite()[pri:0, instance:TestCases.TestSuite@794cb805]" started-at="2025-03-26T17:37:15 IST" name="suite" finished-at="2025-03-26T17:37:15 IST" duration-ms="257" status="PASS">
+        <test-method is-config="true" signature="suite()[pri:0, instance:TestCases.TestSuite@794cb805]" started-at="2025-03-31T14:54:09 IST" name="suite" finished-at="2025-03-31T14:54:09 IST" duration-ms="256" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- suite -->
-        <test-method is-config="true" signature="flush()[pri:0, instance:TestCases.TestSuite@794cb805]" started-at="2025-03-26T17:37:37 IST" name="flush" finished-at="2025-03-26T17:37:38 IST" duration-ms="314" status="PASS">
+        <test-method is-config="true" signature="flush()[pri:0, instance:TestCases.TestSuite@794cb805]" started-at="2025-03-31T14:54:25 IST" name="flush" finished-at="2025-03-31T14:54:25 IST" duration-ms="518" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flush -->

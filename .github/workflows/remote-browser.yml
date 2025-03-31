@@ -78,4 +78,4 @@ jobs:
         uses: actions/upload-artifact@v4 # Updated to the latest version
         with:
           name: test-reports
-          path: target/surefire-reports/ # Upload Maven Surefire test reports
+          path: testReports\extentReport.html # Upload Maven Surefire test reports

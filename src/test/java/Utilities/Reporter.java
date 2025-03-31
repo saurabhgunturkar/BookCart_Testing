@@ -1,5 +1,7 @@
 package Utilities;
 
+import java.io.File;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -14,7 +16,12 @@ public class Reporter extends Base{
     private static ExtentTest test;
 
     public static void setUpReport() {
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extentReport.html");
+        String reportPath = "testReports/extentReport.html";
+        File reportDir = new File("testReports");
+        if (!reportDir.exists()) {
+            reportDir.mkdirs();
+        }
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
         htmlReporter.config().setDocumentTitle("Automation Report");
         htmlReporter.config().setReportName("Functional Testing");
         htmlReporter.config().setTheme(Theme.DARK);
