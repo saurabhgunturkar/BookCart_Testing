@@ -89,6 +89,14 @@ jobs:
     needs: test # Ensure 'test' job completes first
     runs-on: ubuntu-latest
     steps:
+      
+      # Step 1: Download Test Reports
+        - name: Download Test Reports
+          uses: actions/download-artifact@v4
+          with:
+              name: test-reports
+              path: testReports
+
         - name: Check if Test Report Exists
           run: |
             if [ ! -f testReports/index.html ]; then
@@ -99,14 +107,22 @@ jobs:
 
 
   # Job name: Deploy Test Report
-  deploy-test-report:
-    needs: [test, check_test_report_status] # Ensure 'test' and 'check_test_report_status' jobs complete first
+  deploy_test_report:
+    needs: [test, check_test_report_status]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Download Test Reports
+        uses: actions/download-artifact@v4
+        with:
+          name: test-reports
+          path: testReports
+
       - name: Copy Test Report
         run: cp testReports/index.html index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
