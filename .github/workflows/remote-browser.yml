@@ -1,59 +1,23 @@
-# Name of the workflow
 name: Remote Server Browser Test
 
-# Events that trigger the workflow
 on:
   push:
-    branches: [ main ] # Trigger on push events to the main branch
+    branches: [ main ]
   pull_request:
-    branches: [ main ] # Trigger on pull requests targeting the main branch
+    branches: [ main ]
 
-# Environment variables
 env:
-  URL: https://magento.softwaretestingboard.com/ # Testing URL
-  BROWSER: chrome # Browser for tests
-  MY_NAME: Saurabh # Placeholder variable for customization
+  URL: https://magento.softwaretestingboard.com/
+  BROWSER: chrome
+  MY_NAME: Saurabh
 
-# Jobs that run in the workflow
 jobs:
-  # Job name: Build
   build:
-    runs-on: ubuntu-latest # Run the job on Ubuntu
-    steps:
-      # Step 1: Checkout the repository
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      # Step 2: Set up Java 17
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin' # Temurin is now commonly used
-          java-version: '17'
-          cache: maven
-
-      # Step 3: Cache Maven packages
-      - name: Cache Maven Packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven
-
-      # Step 4: Install dependencies without running tests
-      - name: Build Project
-        run: mvn clean package -DskipTests -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
-
-  # Job name: Test
-  test:
-    needs: build # Ensure 'build' job completes first
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Set up Java 17
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -61,7 +25,30 @@ jobs:
           java-version: '17'
           cache: maven
 
-      # Step 3: Restore Maven cache
+      - name: Cache Maven Packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven
+
+      - name: Build Project
+        run: mvn clean package -DskipTests -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: maven
+
       - name: Restore Maven Cache
         uses: actions/cache@v4
         with:
@@ -69,44 +56,35 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven
 
-      # Step 4: Run tests
       - name: Run Tests
         run: mvn clean test -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
 
-      # Step 5: Upload Test Reports
       - name: Upload Test Reports
-        uses: actions/upload-artifact@v3 # Updated to the latest version
+        uses: actions/upload-artifact@v4
         with:
           name: test-reports
           path: testReports/index.html
           if-no-files-found: warn
           compression-level: 6
-          overwrite: false
-          include-hidden-files: false # Upload Maven Surefire test reports
 
-    # Job name: Check Test Report Status
   check_test_report_status:
-    needs: test # Ensure 'test' job completes first
+    needs: test
     runs-on: ubuntu-latest
     steps:
-      
-      # Step 1: Download Test Reports
-        - name: Download Test Reports
-          uses: actions/download-artifact@v4
-          with:
-              name: test-reports
-              path: testReports
+      - name: Download Test Reports
+        uses: actions/download-artifact@v4
+        with:
+          name: test-reports
+          path: testReports
 
-        - name: Check if Test Report Exists
-          run: |
-            if [ ! -f testReports/index.html ]; then
-              echo "Test report not found!"
-              exit 1
-            fi
-            echo "Test report found."
+      - name: Check if Test Report Exists
+        run: |
+          if [ ! -f testReports/index.html ]; then
+            echo "Test report not found!"
+            exit 1
+          fi
+          echo "Test report found."
 
-
-  # Job name: Deploy Test Report
   deploy_test_report:
     needs: [test, check_test_report_status]
     runs-on: ubuntu-latest
