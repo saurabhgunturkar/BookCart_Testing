@@ -1,6 +1,6 @@
 #name of workflow
 name: Remote Server Browser Test
-
+ 
 #events that trigger the workflow
 on:
     #push event on main branch
