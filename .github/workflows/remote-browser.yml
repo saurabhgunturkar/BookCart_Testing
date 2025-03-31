@@ -83,3 +83,34 @@ jobs:
           compression-level: 6
           overwrite: false
           include-hidden-files: false # Upload Maven Surefire test reports
+
+    # Job name: Check Test Report Status
+  check_test_report_status:
+    needs: test # Ensure 'test' job completes first
+    runs-on: ubuntu-latest
+    steps:
+        - name: Check if Test Report Exists
+          run: |
+            if [ ! -f testReports/index.html ]; then
+              echo "Test report not found!"
+              exit 1
+            fi
+            echo "Test report found."
+
+
+  # Job name: Deploy Test Report
+  deploy-test-report:
+    needs: [test, check_test_report_status] # Ensure 'test' and 'check_test_report_status' jobs complete first
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Copy Test Report
+        run: cp testReports/index.html index.html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'index.html'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
