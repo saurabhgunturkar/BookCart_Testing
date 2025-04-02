@@ -1,119 +1,160 @@
-name: Remote Server Browser Test
+# Workflow name and description
+name: End to End Testing with Remote Browser
+description: This workflow is used to build, run end-to-end tests with a remote browser, and deploy the test reports to GitHub Pages.
 
+# Events that trigger this workflow
 on:
+  # Trigger when there is a push to the main branch
   push:
     branches: [ main ]
+  # Trigger when there is a pull request to the main branch
   pull_request:
     branches: [ main ]
 
+# Environment variables available to all jobs in the workflow
 env:
+  # Base URL for testing
   URL: https://magento.softwaretestingboard.com/
+  # Browser to be used for remote testing
   BROWSER: chrome
+  # Arbitrary variable for demonstration purposes
   MY_NAME: Saurabh
 
+# Define the build job
 jobs:
   build:
+    # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
     steps:
+      # Step: Checkout the repository code
       - name: Checkout Code
         uses: actions/checkout@v4
+        # Uses the GitHub action to pull the repository code into the runner
 
+      # Step: Set up Java Development Kit (JDK) 17
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: maven
+          distribution: 'temurin' # Use the Temurin JDK distribution
+          java-version: '17'      # Set Java version to 17
+          cache: maven            # Enable caching for Maven dependencies
 
+      # Step: Cache Maven dependencies
       - name: Cache Maven Packages
         uses: actions/cache@v4
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven
+          path: ~/.m2/repository # Location of Maven's local repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }} # Unique cache key based on runner OS and `pom.xml`
+          restore-keys: ${{ runner.os }}-maven # Fallback keys if exact match is not found
 
+      # Step: Build the Maven project without running tests
       - name: Build Project
         run: mvn clean package -DskipTests -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
+        # Runs Maven to package the application, skipping tests, while passing custom environment variables
 
+# Define the test job
   test:
+    # Specify this job depends on the build job
     needs: build
+    # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
     steps:
+      # Step: Checkout the repository code
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      # Step: Set up JDK 17
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: maven
+          distribution: 'temurin' # Use the Temurin JDK distribution
+          java-version: '17'      # Set Java version to 17
+          cache: maven            # Enable caching for Maven dependencies
 
+      # Step: Restore Maven cache
       - name: Restore Maven Cache
         uses: actions/cache@v4
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven
+          path: ~/.m2/repository # Location of Maven's local repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }} # Unique cache key based on runner OS and `pom.xml`
+          restore-keys: ${{ runner.os }}-maven # Fallback keys if exact match is not found
 
+      # Step: Run end-to-end tests using Maven
       - name: Run Tests
         run: mvn clean test -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
+        # Executes the test cases defined in the Maven project
 
+      # Step: Upload test reports as artifacts
       - name: Upload Test Reports
-        uses: actions/upload-artifact@v4 # Updated to the latest version
+        uses: actions/upload-artifact@v4
         with:
-          name: test-reports
-          path: testReports # Replace with the correct path if needed
-          if-no-files-found: warn
+          name: test-reports       # Name of the artifact
+          path: testReports        # Path to the test report files
+          if-no-files-found: warn  # Warn if no files are found but don't fail the job
 
+# Define the job to check test report status
   check_test_report_status:
+    # Specify this job depends on the test job
     needs: test
+    # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
     steps: 
+      # Step: Download test report artifact
       - name: Download Test Reports
         uses: actions/download-artifact@v4
         with:
-          name: test-reports
-          path: testReports
+          name: test-reports # Name of the artifact to download
+          path: testReports  # Destination path to store downloaded artifacts
 
+      # Step: Verify that the test report exists
       - name: Check if Test Report Exists
         run: |
           if [ ! -f testReports/index.html ]; then
-            echo "Test report not found!"
-            exit 1
+            echo "Test report not found!" # Print error if test report is missing
+            exit 1                       # Exit with error code 1
           fi
-          echo "Test report found."
+          echo "Test report found."       # Print success message if test report exists
 
+# Define the deploy job
   deploy_test_report:
+    # Specify this job depends on the test and check_test_report_status jobs
     needs: [test, check_test_report_status]
+    # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
     permissions:
-      id-token: write # Grant the required permission for OIDC token
-      pages: write
+      id-token: write  # Grant permission to generate OpenID Connect (OIDC) token
+      pages: write     # Grant permission to deploy to GitHub Pages
+
     steps:
+      # Step: Checkout the repository code
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      # Step: Download test report artifact
       - name: Download Test Reports
         uses: actions/download-artifact@v4
         with:
-          name: test-reports
-          path: testReports
+          name: test-reports # Name of the artifact to download
+          path: testReports  # Destination path to store downloaded artifacts
 
+      # Step: Prepare test report artifact for deployment
       - name: Prepare Artifact for Deployment
         run: |
             if [ ! -f testReports/index.html ]; then
-              echo "Test report not found!"
-              exit 1
+              echo "Test report not found!" # Print error if test report is missing
+              exit 1                       # Exit with error code 1
             fi
-            mkdir -p deployment-dir # Create a directory for deployment
-            cp testReports/index.html deployment-dir/
+            mkdir -p deployment-dir         # Create a directory for deployment
+            cp testReports/index.html deployment-dir/ # Copy test report to deployment directory
 
+      # Step: Upload artifact for deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: deployment-dir
+          path: deployment-dir # Specify the directory containing the artifact to upload
 
+      # Step: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        # Deploys the artifact to GitHub Pages
