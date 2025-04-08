@@ -158,17 +158,17 @@ jobs:
 
       - name: Set Deployment URL Based on Environment
         run: |
-              if [[ "${{ github.job }}" == "build" ]]; then
-              echo "DEPLOY_URL=${{ env.DEV_URL }}" >> $GITHUB_ENV
-              elif [[ "${{ github.job }}" == "test" ]]; then
-              echo "DEPLOY_URL=${{ env.TEST_URL }}" >> $GITHUB_ENV
-              elif [[ "${{ github.job }}" == "staging" ]]; then
-              echo "DEPLOY_URL=${{ env.STAGING_URL }}" >> $GITHUB_ENV
-              else
-              echo "DEPLOY_URL=${{ env.PROD_URL }}" >> $GITHUB_ENV
-              fi
-              echo "Application deployed to $DEPLOY_URL"
-  
+            if [[ "${{ github.environment }}" == "Dev" ]]; then
+            echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/dev" >> $GITHUB_ENV
+            elif [[ "${{ github.environment }}" == "Test" ]]; then
+              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/test" >> $GITHUB_ENV
+            elif [[ "${{ github.environment }}" == "Staging" ]]; then
+              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/staging" >> $GITHUB_ENV
+            else
+              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/" >> $GITHUB_ENV
+            fi
+            echo "Application deployed to $DEPLOY_URL"
+    
       
 
       # Step: Upload artifact for deployment
