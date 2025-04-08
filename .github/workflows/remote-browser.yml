@@ -131,6 +131,8 @@ jobs:
     environment: Test
     # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
+    env:
+      ENV_NAME: Test
     permissions:
       id-token: write  # Grant permission to generate OpenID Connect (OIDC) token
       pages: write     # Grant permission to deploy to GitHub Pages
@@ -161,7 +163,7 @@ jobs:
         run: |
             if [[ "${{ github.environment }}" == "Dev" ]]; then
             echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/dev" >> $GITHUB_ENV
-            elif [[ "${{ github.environment }}" == "Test" ]]; then
+            elif [[ "${{ env.ENV_NAME }}" == "Test" ]]; then
               echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/test" >> $GITHUB_ENV
             elif [[ "${{ github.environment }}" == "Staging" ]]; then
               echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/staging" >> $GITHUB_ENV
