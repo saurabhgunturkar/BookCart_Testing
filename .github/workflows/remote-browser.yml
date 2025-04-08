@@ -172,7 +172,11 @@ jobs:
             fi
             echo "Application deployed to $DEPLOY_URL"
     
-      
+      - name: Prepare Artifact for Deployment
+        run: |
+            mkdir -p deployment-dir/${{ github.environment }}
+            cp testReports/index.html deployment-dir/${{ github.environment }}/
+          
 
       # Step: Upload artifact for deployment
       - name: Upload artifact
