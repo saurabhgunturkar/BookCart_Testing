@@ -128,7 +128,7 @@ jobs:
   deploy_test_report:
     # Specify this job depends on the test and check_test_report_status jobs
     needs: [test, check_test_report_status]
-    environment: Test 
+    environment: Test
     # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
     permissions:
