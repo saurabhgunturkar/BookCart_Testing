@@ -128,11 +128,11 @@ jobs:
   deploy_test_report:
     # Specify this job depends on the test and check_test_report_status jobs
     needs: [test, check_test_report_status]
-    environment: Test
+    # environment: Test
     # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
-    env:
-      ENV_NAME: Test
+    # env:
+    #   ENV_NAME: Test
     permissions:
       id-token: write  # Grant permission to generate OpenID Connect (OIDC) token
       pages: write     # Grant permission to deploy to GitHub Pages
@@ -159,23 +159,23 @@ jobs:
             mkdir -p deployment-dir         # Create a directory for deployment
             cp testReports/index.html deployment-dir/ # Copy test report to deployment directory
 
-      - name: Set Deployment URL Based on Environment
-        run: |
-            if [[ "${{ env.ENV_NAME }}" == "Dev" ]]; then
-            echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/dev" >> $GITHUB_ENV
-            elif [[ "${{ env.ENV_NAME }}" == "Test" ]]; then
-              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/test" >> $GITHUB_ENV
-            elif [[ "${{ env.ENV_NAME }}" == "Staging" ]]; then
-              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/stage" >> $GITHUB_ENV
-            else
-              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/" >> $GITHUB_ENV
-            fi
-            echo "Application deployed to $DEPLOY_URL"
+      # - name: Set Deployment URL Based on Environment
+      #   run: |
+      #       if [[ "${{ env.ENV_NAME }}" == "Dev" ]]; then
+      #       echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/dev" >> $GITHUB_ENV
+      #       elif [[ "${{ env.ENV_NAME }}" == "Test" ]]; then
+      #         echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/test" >> $GITHUB_ENV
+      #       elif [[ "${{ env.ENV_NAME }}" == "Staging" ]]; then
+      #         echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/stage" >> $GITHUB_ENV
+      #       else
+      #         echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/" >> $GITHUB_ENV
+      #       fi
+      #       echo "Application deployed to $DEPLOY_URL"
     
-      - name: Prepare Artifact for Deployment
-        run: |
-            mkdir -p deployment-dir/${{ github.environment }}
-            cp testReports/index.html deployment-dir/${{ github.environment }}/
+      # - name: Prepare Artifact for Deployment
+      #   run: |
+      #       mkdir -p deployment-dir/${{ github.environment }}
+      #       cp testReports/index.html deployment-dir/${{ github.environment }}/
           
 
       # Step: Upload artifact for deployment
