@@ -162,7 +162,7 @@ jobs:
       - name: Set Deployment URL Based on Environment
         run: |
             if [[ "${{ env.ENV_NAME }}" == "Dev" ]]; then
-            echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/dev >> $GITHUB_ENV
+            echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/dev" >> $GITHUB_ENV
             elif [[ "${{ env.ENV_NAME }}" == "Test" ]]; then
               echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/test" >> $GITHUB_ENV
             elif [[ "${{ env.ENV_NAME }}" == "Staging" ]]; then
