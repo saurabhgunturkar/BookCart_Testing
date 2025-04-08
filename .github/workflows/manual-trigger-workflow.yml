@@ -31,7 +31,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest] #OS 
-        browser: [Chrome] #execute browsers with each OS
+        browser: [Chrome, Edge] #execute browsers with each OS
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30  # Set a timeout of 30 minutes for the job
     steps:

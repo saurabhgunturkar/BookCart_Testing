@@ -25,6 +25,7 @@ jobs:
   build:
     # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
+    environment: Dev
     steps:
       # Step: Checkout the repository code
       - name: Checkout Code
@@ -58,6 +59,7 @@ jobs:
     needs: build
     # Specify the runner OS (Ubuntu)
     runs-on: ubuntu-latest
+    environment: Test
     steps:
       # Step: Checkout the repository code
       - name: Checkout Code
