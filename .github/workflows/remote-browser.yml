@@ -20,6 +20,13 @@ env:
   # Arbitrary variable for demonstration purposes
   MY_NAME: Saurabh
 
+  DEV_URL: https://saurabhgunturkar.github.io/BookCart_Testing/dev
+  TEST_URL: https://saurabhgunturkar.github.io/BookCart_Testing/test
+  STAGING_URL: https://saurabhgunturkar.github.io/BookCart_Testing/staging
+  PROD_URL: https://saurabhgunturkar.github.io/BookCart_Testing/
+  
+
+
 # Define the build job
 jobs:
   build:
@@ -148,6 +155,20 @@ jobs:
             fi
             mkdir -p deployment-dir         # Create a directory for deployment
             cp testReports/index.html deployment-dir/ # Copy test report to deployment directory
+
+      - name: Set Deployment URL Based on Environment
+        run: |
+              if [[ "${{ github.event.repository.default_branch }}" == "dev" ]]; then
+                echo "DEPLOY_URL=${{ env.DEV_URL }}" >> $GITHUB_ENV
+              elif [[ "${{ github.event.repository.default_branch }}" == "test" ]]; then
+                echo "DEPLOY_URL=${{ env.TEST_URL }}" >> $GITHUB_ENV
+              elif [[ "${{ github.event.repository.default_branch }}" == "staging" ]]; then
+                echo "DEPLOY_URL=${{ env.STAGING_URL }}" >> $GITHUB_ENV
+              else
+                echo "DEPLOY_URL=${{ env.PROD_URL }}" >> $GITHUB_ENV
+              fi
+              echo "Application deployed to $DEPLOY_URL"
+      
 
       # Step: Upload artifact for deployment
       - name: Upload artifact
