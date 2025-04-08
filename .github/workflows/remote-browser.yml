@@ -162,13 +162,13 @@ jobs:
       - name: Set Deployment URL Based on Environment
         run: |
             if [[ "${{ env.ENV_NAME }}" == "Dev" ]]; then
-            echo "DEPLOY_URL=https://dev.magento.softwaretestingboard.com" >> $GITHUB_ENV
+            echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/dev >> $GITHUB_ENV
             elif [[ "${{ env.ENV_NAME }}" == "Test" ]]; then
-              echo "DEPLOY_URL=https://test.magento.softwaretestingboard.com" >> $GITHUB_ENV
+              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/test" >> $GITHUB_ENV
             elif [[ "${{ env.ENV_NAME }}" == "Staging" ]]; then
-              echo "DEPLOY_URL=https://stage.magento.softwaretestingboard.com" >> $GITHUB_ENV
+              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/stage" >> $GITHUB_ENV
             else
-              echo "DEPLOY_URL=https://magento.softwaretestingboard.com/" >> $GITHUB_ENV
+              echo "DEPLOY_URL=https://saurabhgunturkar.github.io/BookCart_Testing/" >> $GITHUB_ENV
             fi
             echo "Application deployed to $DEPLOY_URL"
     
