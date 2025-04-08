@@ -9,6 +9,9 @@
 6. Smoke Group Testing
 7. Regression Testing
 8. Failure Testcase Testing
+
+9. Code Quality/Analysis (CodeQL)
+10. Code Formatting
 ---
 | Workflow | Status |
 |----------|--------|
