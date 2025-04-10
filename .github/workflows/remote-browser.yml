@@ -56,7 +56,7 @@ jobs:
           restore-keys: ${{ runner.os }}-maven # Fallback keys if exact match is not found
 
       # Step: Build the Maven project without running tests
-      - name: Build Project
+      # - name: Build Project
         # run: mvn clean package -DskipTests -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
         # Runs Maven to package the application, skipping tests, while passing custom environment variables
 
