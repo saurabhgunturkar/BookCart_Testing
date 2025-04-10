@@ -57,7 +57,7 @@ jobs:
 
       # Step: Build the Maven project without running tests
       - name: Build Project
-        run: mvn clean package -DskipTests -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
+        # run: mvn clean package -DskipTests -Durl=${{ env.URL }} -Dbrowser=${{ env.BROWSER }}
         # Runs Maven to package the application, skipping tests, while passing custom environment variables
 
 # Define the test job
