@@ -1,70 +1,70 @@
 name: Manual Trigger with Inputs
 
 on:
-    workflow_dispatch:
-        inputs:
-            url:
-                description: 'URL to use for the test'
-                required: true
-                default: 'https://magento.softwaretestingboard.com/'
-    
-            browser:
-                    type: choice
-                    description: What browser to use for the test?
-                    required: true
-                    default: Chrome
-                    options:
-                    - Chrome
-                    - Firefox
-                    - Safari
-                    - Edge
+        workflow_dispatch:
+                inputs:
+                        url:
+                                description: 'URL to use for the test'
+                                required: true
+                                default: 'https://magento.softwaretestingboard.com/'
+        
+                        browser:
+                                        type: choice
+                                        description: What browser to use for the test?
+                                        required: true
+                                        default: Chrome
+                                        options:
+                                        - Chrome
+                                        - Firefox
+                                        - Safari
+                                        - Edge
 
-            OS:
-                type: choice
-                description: Select Operating System
-                required: true
-                default: ubuntu-latest
-                options:
-                    - ubuntu-latest
-                    - ubuntu-22.04
-                    - ubuntu-20.04
-                    - macos-latest
-                    - macos-12
-                    - macos-11
-                    - windows-latest
-                    - windows-2022
-                    - windows-2019
+                        OS:
+                                type: choice
+                                description: Select Operating System
+                                required: true
+                                default: ubuntu-latest-20.04
+                                options:
+                                        - ubuntu-latest-20.04
+                                        - ubuntu-latest-22.04
+                                        - ubuntu-20.04
+                                        - macos-latest
+                                        - macos-12
+                                        - macos-11
+                                        - windows-latest
+                                        - windows-2022
+                                        - windows-2019
 
 
 jobs:
-    test:
-        runs-on: ${{ github.event.inputs.OS }}
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
+        test:
+                runs-on: ${{ github.event.inputs.OS }}
+                steps:
+                        - name: Checkout repository
+                          uses: actions/checkout@v4
 
-            - name: Set up JDK 17
-              uses: actions/setup-java@v3
-              with:
-                distribution: 'temurin'
-                java-version: '17'
+                        - name: Set up JDK 17
+                          uses: actions/setup-java@v3
+                          with:
+                                distribution: 'temurin'
+                                java-version: '17'
 
-            - name: Cache Maven Packages
-              uses: actions/cache@v4
-              with:
-                path: ~/.m2/repository
-                key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml')}}
-                restore-keys: ${{ runner.os }}-maven
-            
-            - name: Run Tests
-              run: |
-                echo "Tests on ${{ github.event.inputs.OS }} - ${{ github.event.inputs.browser}} by URL ${{ github.event.inputs.url }}"
-                mvn clean test -Dplatform=${{ github.event.inputs.OS }} -Dbrowser=${{ github.event.inputs.browser }} -Durl=${{ github.event.inputs.url }}
+                        - name: Cache Maven Packages
+                          uses: actions/cache@v4
+                          with:
+                                path: ~/.m2/repository
+                                key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml')}}
+                                restore-keys: ${{ runner.os }}-maven
+                        
+                        - name: Run Tests
+                          run: |
+                                echo "Tests on ${{ github.event.inputs.OS }} - ${{ github.event.inputs.browser}} by URL ${{ github.event.inputs.url }}"
+                                mvn clean test -Dplatform=${{ github.event.inputs.OS }} -Dbrowser=${{ github.event.inputs.browser }} -Durl=${{ github.event.inputs.url }}
 
-            - name: Upload Test Report
-              uses: actions/upload-artifact@v4
-              with:
-                name: Test Report
-                path: testReports
-                if-no-files-found: warn
+                        - name: Upload Test Report
+                          uses: actions/upload-artifact@v4
+                          with:
+                                name: Test Report
+                                path: testReports
+                                if-no-files-found: warn
                 
