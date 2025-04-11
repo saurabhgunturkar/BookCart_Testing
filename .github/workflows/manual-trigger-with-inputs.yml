@@ -29,8 +29,8 @@ on:
                                         - ubuntu-20.04
                                         - ubuntu-22.04
                                         - macos-latest
-                                        - macos-12
-                                        - macos-11
+                                        - macos-13
+                                        - macos-14
                                         - windows-latest
                                         - windows-2022
                                         - windows-2019
