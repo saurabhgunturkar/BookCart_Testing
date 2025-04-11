@@ -23,11 +23,11 @@ on:
                                 type: choice
                                 description: Select Operating System
                                 required: true
-                                default: ubuntu-latest-20.04
+                                default: ubuntu-latest
                                 options:
-                                        - ubuntu-latest-20.04
-                                        - ubuntu-latest-22.04
+                                        - ubuntu-latest
                                         - ubuntu-20.04
+                                        - ubuntu-22.04
                                         - macos-latest
                                         - macos-12
                                         - macos-11
