@@ -76,11 +76,18 @@ public class SignupTest extends Base {
 
     @Test
     public void testcheck_with_testPrintEnvVariable(){
-        System.out.println("Test case passed......");
-        
-        // get env.variable value form workflow file i.e. remote-browser.yml
-        String myName = System.getenv("MY_NAME");
-        System.out.println("MY_NAME: " + myName);
+        try {
+            testname = "testcheck_with_testPrintEnvVariable";
+            System.out.println("Test case passed......");
+            
+            // get env.variable value form workflow file i.e. remote-browser.yml
+            String myName = System.getenv("MY_NAME");
+            System.out.println("MY_NAME: " + myName);
+            Reporter.logPass(testname);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Reporter.logFail(testname + " - " + e.getMessage());
+        }
         
     }
 
