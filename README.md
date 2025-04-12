@@ -1,10 +1,10 @@
 # BookCart_Testing
 
 **list of Actions**
-1. End-to-End Workflow (Build-Test-Deploy TestReport)
-2. Manual Trigger with inputs
+1. End-to-End Workflow (Build-Test-Deploy TestReport) - Done
+2. Manual Trigger with inputs - DOne
 3. Remote Browser Testing
-4. Cross Browser Testing/Cross OS Testing
+4. Cross Browser Testing/Cross OS Testing - Done
 5. Scheduled events
 6. Smoke Group Testing
 7. Regression Testing

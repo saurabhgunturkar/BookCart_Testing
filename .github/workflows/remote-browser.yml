@@ -1,6 +1,5 @@
-# Workflow name and description
-name: End to End Testing with Remote Browser
-description: This workflow is used to build, run end-to-end tests with a remote browser, and deploy the test reports to GitHub Pages.
+# Workflow name
+name: Remote Browser
 
 # Events that trigger this workflow
 on:
@@ -11,20 +10,12 @@ on:
   pull_request:
     branches: [ main ]
 
-# Environment variables available to all jobs in the workflow
+# Environment variables
 env:
-  # Base URL for testing
   URL: https://magento.softwaretestingboard.com/
-  # Browser to be used for remote testing
   BROWSER: chrome
-  # Arbitrary variable for demonstration purposes
   MY_NAME: Saurabh
 
-  DEV_URL: https://saurabhgunturkar.github.io/BookCart_Testing/dev
-  TEST_URL: https://saurabhgunturkar.github.io/BookCart_Testing/test
-  STAGING_URL: https://saurabhgunturkar.github.io/BookCart_Testing/staging
-  PROD_URL: https://saurabhgunturkar.github.io/BookCart_Testing/
-  
 
 
 # Define the build job
