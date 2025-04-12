@@ -11,54 +11,43 @@ env:
     MY_NAME: Saurabh
 
 jobs:
-    environtment-setup:
-        strategy:
-            matrix:
-                os: [ ubuntu-latest]
-                browser: [ chrome, firefox, edge ]
-        runs-on: ${{ matrix.os }}
-        steps:
-            - name: Enviroment congiguration
-              run: |
-                echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
-        
-    
     test:
-        needs: environtment-setup
-        strategy:
-            matrix:
-                os: [ ubuntu-latest]
-                browser: [ chrome, firefox, edge ]
-        runs-on: ${{ matrix.os }}
-        steps:
-            - name: chechout repository
-              uses: actions/checkout@v4
+            strategy:
+                    matrix:
+                            os: [ ubuntu-latest]
+                            browser: [ chrome, firefox, edge ]
+            runs-on: ${{ matrix.os }}
+            steps:
+                    -   name: Enviroment congiguration
+                        run: |
+                            echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
+        
+                    -   name: chechout repository
+                        uses: actions/checkout@v4
 
-            - name: Set up JDK 17
-              uses: actions/setup-java@v3
-              with:
-                distribution: 'temurin'
-                java-version: '17'
+                    -   name: Set up JDK 17
+                        uses: actions/setup-java@v3
+                        with:
+                            distribution: 'temurin'
+                            java-version: '17'
 
-            - name: Cache Maven Packages
-              uses: actions/cache@v4
-              with:
-                path: ~/.m2/repository
-                key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-                restore-keys: ${{ runner.os }}-maven
-            
-            - name: Run Tests
-              run: |
-                echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
-                mvn clean test -Dplatform=${{ matrix.os }} -Dbrowser=${{ matrix.browser }} -Durl=${{ env.URL }}
-            
-            - name: Upload Test Report
-              uses: actions/upload-artifact@v4
-              with:
-                    name: Test Report
-                    path: testReports
-                    if-no-files-found: warn
-
-
+                    -   name: Cache Maven Packages
+                        uses: actions/cache@v4
+                        with:
+                            path: ~/.m2/repository
+                            key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+                            restore-keys: ${{ runner.os }}-maven
+                    
+                    -   name: Run Tests
+                        run: |
+                            echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
+                            mvn clean test -Dplatform=${{ matrix.os }} -Dbrowser=${{ matrix.browser }} -Durl=${{ env.URL }}
+                    
+                    -   name: Upload Test Report
+                        uses: actions/upload-artifact@v4
+                        with:
+                                    name: Test Report
+                                    path: testReports
+                                    if-no-files-found: warn
 
     
