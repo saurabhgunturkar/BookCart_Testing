@@ -1,14 +1,16 @@
 # BookCart_Testing
 
 **list of Actions**
-1. End-to-End Workflow (Build-Test-Deploy TestReport) - Done
-2. Manual Trigger with inputs - DOne
-3. Remote Browser Testing
-4. Cross Browser Testing/Cross OS Testing - Done
-5. Scheduled events
-6. Smoke Group Testing
-7. Regression Testing
-8. Failure Testcase Testing
+| Pipeline Name                              | Status | Recommendation |
+|--------------------------------------------|--------|---------------|
+| End-to-End Workflow (Build-Test-Deploy TestReport) | Done   | Recommended  |
+| Manual Trigger with Inputs                 | Done   | Recommended  |
+| Remote Browser Testing                     | Pending | Consider Using |
+| Cross Browser Testing / Cross OS Testing   | Done   | Recommended  |
+| Scheduled Events                            | Pending | Consider Using |
+| Smoke Group Testing                         | Pending | Consider Using |
+| Regression Testing                          | Pending | Consider Using |
+| Failure Testcase Testing                    | Pending | Consider Using |
 
 9. Code Quality/Analysis (CodeQL)
 10. Code Formatting
