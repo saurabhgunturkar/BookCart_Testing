@@ -25,7 +25,11 @@ jobs:
     
     test:
         needs: environtment-setup
-        runs-on: ${{ needs.environtment-setup.outputs.runs-on }}
+        strategy:
+            matrix:
+                os: [ ubuntu-latest]
+                browser: [ chrome, firefox, edge ]
+        runs-on: ${{ matrix.os }}
         steps:
             - name: chechout repository
               uses: actions/checkout@v4
