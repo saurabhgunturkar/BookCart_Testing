@@ -1,16 +1,16 @@
 # BookCart_Testing
 
 **list of Actions**
-| Pipeline Name                              | Status | Recommendation |
+| Pipeline Name                              | Status | Recommendation to use |
 |--------------------------------------------|--------|---------------|
-| End-to-End Workflow (Build-Test-Deploy TestReport) | Done   | Recommended  |
-| Manual Trigger with Inputs                 | Done   | Recommended  |
-| Remote Browser Testing                     | Pending | Consider Using |
-| Cross Browser Testing / Cross OS Testing   | Done   | Recommended  |
-| Scheduled Events                            | Pending | Consider Using |
-| Smoke Group Testing                         | Pending | Consider Using |
-| Regression Testing                          | Pending | Consider Using |
-| Failure Testcase Testing                    | Pending | Consider Using |
+| End-to-End Workflow (Build-Test-Deploy TestReport) | Done   | Highly, on scheduled to run complete project  |
+| Manual Trigger with Inputs                 | Done   | Manual |
+| Remote Browser Testing                     | Pending | on every Commit/pull request |
+| Cross Browser Testing / Cross OS Testing   | Done   |  on pull request |
+| Scheduled Events                            | Pending | day-wise |
+| Smoke Group Testing                         | Pending | on pull request |
+| Regression Testing                          | Pending | on pull request |
+| Failure Testcase Testing                    | Pending | on commit/pull request |
 
 9. Code Quality/Analysis (CodeQL)
 10. Code Formatting
