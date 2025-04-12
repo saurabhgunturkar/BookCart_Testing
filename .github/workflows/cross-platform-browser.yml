@@ -17,6 +17,10 @@ jobs:
                 os: [ ubuntu-latest]
                 browser: [ chrome, firefox, edge ]
         runs-on: ${{ matrix.os }}
+        steps:
+            - name: Enviroment congiguration
+              run: |
+                echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
         
     
     test:
