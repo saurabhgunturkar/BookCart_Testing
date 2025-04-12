@@ -1,5 +1,5 @@
 # Workflow name and description
-name: End to End Testing with Remote Browser
+name: E2E (Build-Test-Deploy TestReport)
 description: This workflow is used to build, run end-to-end tests with a remote browser, and deploy the test reports to GitHub Pages.
 
 # Events that trigger this workflow
