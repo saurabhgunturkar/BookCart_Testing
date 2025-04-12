@@ -43,11 +43,5 @@ jobs:
                             echo "Testing on ${{ matrix.os }} using ${{ matrix.browser }}"
                             mvn clean test -Dplatform=${{ matrix.os }} -Dbrowser=${{ matrix.browser }} -Durl=${{ env.URL }}
                     
-                    -   name: Upload Test Report
-                        uses: actions/upload-artifact@v4
-                        with:
-                                    name: Test Report
-                                    path: testReports
-                                    if-no-files-found: warn
 
     
