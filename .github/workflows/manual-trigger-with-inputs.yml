@@ -61,10 +61,10 @@ jobs:
                                 echo "Tests on ${{ github.event.inputs.OS }} - ${{ github.event.inputs.browser}} by URL ${{ github.event.inputs.url }}"
                                 mvn clean test -Dplatform=${{ github.event.inputs.OS }} -Dbrowser=${{ github.event.inputs.browser }} -Durl=${{ github.event.inputs.url }}
 
-                        - name: Upload Test Report
-                          uses: actions/upload-artifact@v4
-                          with:
-                                name: Test Report
-                                path: testReports
-                                if-no-files-found: warn
+                        # - name: Upload Test Report
+                        #   uses: actions/upload-artifact@v4
+                        #   with:
+                        #         name: Test Report
+                        #         path: testReports
+                        #         if-no-files-found: warn
                 
